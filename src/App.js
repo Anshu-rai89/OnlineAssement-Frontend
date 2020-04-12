@@ -3,6 +3,7 @@ import {BrowserRouter,Switch,Route} from 'react-router-dom';
 
 import Navbar from './components/layout/navbar';
 import DashBord from './components/dashbord/dashbord';
+import SignIn from './components/auth/signin';
 function App() {
 
   
@@ -11,6 +12,8 @@ function App() {
     <div className="App">
       <Navbar />
       <Switch>
+        
+        <Route path='/signin' component={SignIn} />
         <Route path='/' component ={DashBord}  />
       </Switch>
     </div>
