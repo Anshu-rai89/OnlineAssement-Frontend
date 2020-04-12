@@ -2,7 +2,7 @@ import React from 'react';
 import {NavLink} from 'react-router-dom';
 
 
-const SigninLink=()=>
+const SignedinLink=()=>
 {
     return (
         <ul className="right">
@@ -13,4 +13,4 @@ const SigninLink=()=>
     )
 }
 
-export default SigninLink;
+export default SignedinLink;
