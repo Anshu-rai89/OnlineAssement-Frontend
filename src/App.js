@@ -1,8 +1,8 @@
 import React from 'react';
-import {BrowserRouter} from 'react-router-dom';
+import {BrowserRouter,Switch,Route} from 'react-router-dom';
 
 import Navbar from './components/layout/navbar';
-
+import DashBord from './components/dashbord/dashbord';
 function App() {
 
   
@@ -10,7 +10,9 @@ function App() {
     <BrowserRouter>
     <div className="App">
       <Navbar />
-      <h1>setup</h1>
+      <Switch>
+        <Route path='/' component ={DashBord}  />
+      </Switch>
     </div>
     </BrowserRouter>
   );
