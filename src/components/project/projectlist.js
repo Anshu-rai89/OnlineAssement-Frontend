@@ -1,6 +1,6 @@
 import React from  'react';
-
-
+import {connect}  from 'react-redux';
+import {showQuestions}  from '../../store/action/questionaction';
 const QuestionList=(props)=>
 {
     const questions=props.questions;
@@ -22,4 +22,11 @@ const QuestionList=(props)=>
     )
 }
 
-export default QuestionList;
+const mapDispatchToProps=(dispatch)
+{   const obj={
+                  showQuestions:(question)=>dispatch(showQuestions(question))
+              }
+      return
+}
+
+export default connect(null,mapDispatchToProps)(QuestionList);

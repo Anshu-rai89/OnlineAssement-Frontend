@@ -1,3 +1,5 @@
+import {SHOW_QUESTIONS}  from '../action/questionaction';
+
 const initialState={
     
     questions:[
@@ -21,7 +23,16 @@ const initialState={
 
 const questionReducer=(state=initialState,action)=>
 {
-    return state;
+    switch(action.type)
+    {
+        case SHOW_QUESTIONS:{
+            console.log('show question');}
+         default:
+            return state;
+
+    }
+
+    
 }
 
 
