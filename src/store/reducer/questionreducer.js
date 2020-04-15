@@ -26,7 +26,12 @@ const questionReducer=(state=initialState,action)=>
     switch(action.type)
     {
         case SHOW_QUESTIONS:{
-            console.log('show question');}
+            console.log('show question');
+           return {
+               ...state,
+               question:action.question
+           }
+        }
          default:
             return state;
 

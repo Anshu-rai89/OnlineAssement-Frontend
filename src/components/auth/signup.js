@@ -1,13 +1,19 @@
 import React from 'react';
-
+import qs from 'qs'
+import {Redirect}  from   'react-router-dom';
 class SignUp extends React.Component
-{
-    state={
-       email:'',
-       password:'',
-       name:''
+{  constructor()
+    {
+        super();
+        this.state={
+        email:'',
+        password:'',
+        name:''
+        }
     }
 
+        
+       
     handleChange=(e)=>
     {  this.setState(
         {
@@ -17,10 +23,33 @@ class SignUp extends React.Component
 
     handleSubmit=(e)=>
     {   e.preventDefault();
-        console.log(this.state);
+        
+        const data={
+            email:this.state.email[0],
+            password:this.state.password[0],
+            name:this.state.name[0]
+        }
+
+
+        console.log(qs.stringify(data));
+   
+        fetch('http://localhost:9000/user/create',{
+            method:'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: qs.stringify(data)
+
+        })
+            .then(response => response.json())
+            .then(data => console.log(data.msg));
     }
     render()
     {
+        const token=localStorage.getItem('token');
+
+        if(token)
+        {
+            return <Redirect to='/'  />
+        }
         return(
             <div className="container">
                 <form onSubmit={this.handleSubmit} className="white">

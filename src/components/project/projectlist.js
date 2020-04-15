@@ -1,32 +1,51 @@
 import React from  'react';
-import {connect}  from 'react-redux';
-import {showQuestions}  from '../../store/action/questionaction';
-const QuestionList=(props)=>
+import Question  from './question';
+
+class QuestionList extends React.Component
 {
-    const questions=props.questions;
+    constructor()
+    {
+        super();
+        this.state=
+        {
+            opt:''
+        }
+    }
+    setAns=(e)=>
+    {
+          this.setState({[e.target.id]:[e.target.value]});
+    }
+    render()
+    {
+        console.log(this.state);
+      const questions=this.props.questions;
+      console.log(questions);
+      let token=localStorage.getItem('token');
+      
     return (
        
         <div className="questionlist section">
-            {questions && questions.map(question=>{
-                return (
-                    <div className="card question-info">
-                    <div className="card-content grey-text text-darken-3">
-                         <span className="card-title"> {question.title}</span>
-                         <p className="inner">{question.content}</p>
-                    </div>
-                   </div>
-                );
-            })}
+            {
+            token && questions && questions.map((question,index)=>
+            
+                   <Question 
+
+                   key={`Q-${index+1}`}
+                   question={question}
+                   id={index+1}
+                   setAns={this.setAns}
+                    />
+            )}
+
+         { token && <button class="btn waves-effect waves-light" type="submit" name="action">Submit Test
+            <i class="material-icons right">send</i>
+        </button>}
             </div>
        
     )
 }
-
-const mapDispatchToProps=(dispatch)
-{   const obj={
-                  showQuestions:(question)=>dispatch(showQuestions(question))
-              }
-      return
 }
 
-export default connect(null,mapDispatchToProps)(QuestionList);
+
+
+export default QuestionList;
