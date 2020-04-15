@@ -5,7 +5,7 @@ const OptionList=(props)=>
 {  
     
 
-    const options=props.options;
+    const {options,id}=props;
     console.log('options are in options list',options);
      return (
        <div style={{marginTop:'30px'}}>
@@ -14,7 +14,7 @@ const OptionList=(props)=>
             <Option  
             
             key={`option-${index}`}
-            id={index+1}
+            id={id}
             option={option}
             setAns={props.setAns}
             />
