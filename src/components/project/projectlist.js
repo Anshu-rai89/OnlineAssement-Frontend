@@ -38,7 +38,7 @@ class QuestionList extends React.Component
             )}
 
          { token && <button class="btn waves-effect waves-light" type="submit" name="action">Submit Test
-            <i class="material-icons right">send</i>
+           
         </button>}
             </div>
        

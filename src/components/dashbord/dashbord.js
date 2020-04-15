@@ -34,12 +34,7 @@ class Dashbord extends React.Component
                   <div className="col s12 m6">
                       <QuestionList  questions={questions}/>
                   </div>
-                 {
-                     localStorage.getItem('token') && 
-                     <div className="col s12 m5 offset-m1 card">
-                     <p>Evaluate</p>
-                      </div>
-                 } 
+                 
                 </div>
             </div>
         )
