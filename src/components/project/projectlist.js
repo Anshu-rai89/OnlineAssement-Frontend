@@ -7,8 +7,8 @@ class QuestionList extends React.Component
   
     render()
     {
-        console.log(this.state);
-      const questions=this.props.questions;
+       
+      const {questions,setAns}=this.props;
       console.log(questions);
       
     return (
@@ -21,8 +21,8 @@ class QuestionList extends React.Component
 
                    key={`Q-${index+1}`}
                    question={question}
-                   id={`Q-${index+1}`}
-                  
+                   id={`Q${index+1}`}
+                  setAns={setAns}
                     />
             )}
 
